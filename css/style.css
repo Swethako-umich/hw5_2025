@@ -1,0 +1,205 @@
+/* Step 1 */
+/* Gave the animation the name "logoGrow". Gave start selectors with width of 25px and no opacity. Gave send selectors with width of 475px and full opacity. The animation lasts 5 seconds and only happens when the page is loaded. */
+@keyframes logoGrow {
+    from {
+        width: 25px;
+        opacity: 0;
+      }
+      to {
+        width: 475px;
+        opacity: 1;
+      }
+    }
+
+    #logo {
+      width: 475px;
+      position: relative;
+      animation: logoGrow 5s;
+    }
+
+/* Step 2 */
+/* Changed the font to Poppins (using Google fonts) with serif as a backup.  Added “concrete_seamless.png” as the background-image and a background color of #f1f1f1. */
+body{
+    font-family: "Poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Step 3 */
+/* Added a flex display for header tag. Gave it a column flex direction and aligned items to the center.
+ */
+ header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ /* Step 4 */
+ /* Added a flex display for the nav_links class. Gave it a column flex direction.  */
+ .nav_links{
+    display: flex;
+    flex-direction: column;
+ }
+
+ /* Step 5 */
+ /* Added color blue to the :visited pseudo class so now the visited links have the same color.*/
+ a{
+    color: blue;
+ }
+ a:visited{
+    color: blue;
+ }
+
+ /* Step 6 */
+ /* styled the header child of .card class with a background color, border, padding and top left and right border radius. Also added the border radius to the card class to match the border radius of the header child.
+ */
+
+.card > header{
+    background-color: #288088;
+    border: 2px solid #45adad;
+    padding: 20px 0px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+.card{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7 */
+/* Used flex-basis to set the initial width. */
+.card{
+    flex-basis: 450px;
+}
+
+/* Step 8 */
+/* Styled the pricing class with flex display and row wrap. Used justify content to center content. */
+.pricing{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* Step 9 */
+/* Styled the images in the gallery class with a solid 10px border with a color of #50C7C7, 10px margin on all four sides and a width of 300px. */
+.gallery img{
+    border: 10px solid #50c7c7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step 10 */
+/* Used flex display for gallery class, flex wrap to wrap the content and make it responsive across different screen sizes and justified content to teh centre.s */
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+@media screen and (min-width: 900px){
+
+    /* Step 11 */
+    /* Styled both header and nav_links class with a flex-direction of row. Justified content on header class with space between so that the logo and the nav links are on 2 ends of the page. */
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Step 12 */
+    /* Edit the css for the pricing and card classes to match our example. Part of achieving this is by using a flex-property to specify a “size” of 275px. Notice that the elements do not have the same height, but do have the same width. */
+    .pricing{
+        display: flex;
+        align-items: center;
+    }
+    .card{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 275px;
+    }
+    .card > header{
+        width: 100%;
+    }
+
+    /* Step 13 */
+    /* Modified the first header inside main with a fixed position so that it remains visible at the top of the screen even as we scroll down. Added a 100% width because the header shrunk in size. Added a top margin to main because the fixed header was hiding initial content on the page. */
+    body > header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+    main {
+        margin-top: 120px;
+      }
+}
+
+/* Step 14 */
+/* If prefers-reduced-motion is selected, logo doesn't animate.  */
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+      animation: none;
+    }
+}
+
+@media print{
+
+    /* Step 15, 16 */
+    /* Changed the font to Arial with a backup value of Helvetica. Removed background image */
+    body{
+        font-family: "Arial", "Helvetica";
+        background-image: none;
+    }
+    /* Step 17 */
+    /* Edited the nav/nav_links elements so that they are spaced according to the image.*/
+    nav {
+        display: flex;
+        justify-content: space-around;
+        justify-items:center;
+    }
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        justify-items:center;
+    }
+
+    /* Step 18 */
+    /* Edited the pricing class so that the elements align along the bottom. */
+    .pricing{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items:end;
+    }
+
+
+    /* Step 19 */
+    /* Added a solid border 2px of #45ADDD and used flex-basis of 325px for the cards. */
+    .card{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 325px;
+        border: solid 2px #45ADDD;
+    }
+    .card > header{
+        width: 100%;
+    }
+
+    /* Step 20 */
+    /* Changed gallery visibility to None. */
+    #gallery, .gallery{
+        display: none;
+    }
+
+    /* Step 21 */
+    /* Added a thumbs up emoji after the second list element of card. */
+    .card li:nth-child(2):after {
+        content: "👍";
+        position: absolute;
+    }
+}
